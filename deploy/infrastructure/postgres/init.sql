@@ -1,6 +1,6 @@
-CREATE SCHEMA IF NOT EXISTS slurm;
+CREATE SCHEMA IF NOT EXISTS test;
 
-CREATE TABLE IF NOT EXISTS slurm.contact
+CREATE TABLE IF NOT EXISTS test.contact
 (
     id           uuid         DEFAULT gen_random_uuid()      NOT NULL
     CONSTRAINT pk_contact
@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS slurm.contact
     is_archived  boolean      DEFAULT FALSE                  NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS slurm."group"
+CREATE TABLE IF NOT EXISTS test."group"
 (
     id            uuid      DEFAULT gen_random_uuid() NOT NULL
     CONSTRAINT pk_group
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS slurm."group"
     is_archived   boolean   DEFAULT FALSE             NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS slurm.contact_in_group
+CREATE TABLE IF NOT EXISTS test.contact_in_group
 (
     id          uuid      DEFAULT gen_random_uuid() NOT NULL
     CONSTRAINT pk_contact_in_group
@@ -41,8 +41,8 @@ CREATE TABLE IF NOT EXISTS slurm.contact_in_group
     modified_at timestamp DEFAULT CURRENT_TIMESTAMP,
     contact_id  uuid                                not null
     constraint fk_contact_id
-    references slurm.contact,
+    references test.contact,
     group_id    uuid                                not null
     constraint fk_group_id
-    references slurm."group"
+    references test."group"
 );

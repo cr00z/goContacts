@@ -5,7 +5,7 @@ services:
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: passwd
-      POSTGRES_DB: slurm
+      POSTGRES_DB: test
       PGDATA: /data/postgres
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
