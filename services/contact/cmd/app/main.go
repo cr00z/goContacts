@@ -1,7 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/cr00z/goContacts/pkg/store/postgres"
+)
 
 func main() {
-	fmt.Println("hello")
+	conn, err := postgres.New(postgres.Settings{})
+	if err != nil {
+		panic(err)
+	}
+	defer conn.Pool.Close()
+
+	fmt.Println(conn.Pool.Stat())
+	fmt.Println("hello db")
 }
