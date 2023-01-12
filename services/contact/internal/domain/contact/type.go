@@ -1,37 +1,100 @@
 package contact
 
 import (
+	"github.com/cr00z/goContacts/pkg/type/email"
+	"github.com/cr00z/goContacts/pkg/type/gender"
+	"github.com/cr00z/goContacts/pkg/type/phone"
+	"github.com/cr00z/goContacts/services/contact/internal/domain/contact/age"
+	"github.com/cr00z/goContacts/services/contact/internal/domain/contact/name"
+	"github.com/cr00z/goContacts/services/contact/internal/domain/contact/patronymic"
+	"github.com/cr00z/goContacts/services/contact/internal/domain/contact/surname"
 	"github.com/google/uuid"
 	"time"
 )
 
 type Contact struct {
-	ID          uuid.UUID
-	CreatedAt   time.Time
-	ModifiedAt  time.Time
-	Name        string
-	Surname     string
-	Patronymic  string
-	Email       string
-	PhoneNumber string
-	Age         int16
-	Gender      int16
+	id         uuid.UUID
+	createdAt  time.Time
+	modifiedAt time.Time
+
+	name       name.Name
+	surname    surname.Surname
+	patronymic patronymic.Patronymic
+
+	email       email.Email
+	phoneNumber phone.PhoneNumber
+
+	age    age.Age
+	gender gender.Gender
 }
 
-func New() Contact {
-	return Contact{
-		ID:         uuid.New(),
-		CreatedAt:  time.Now(),
-		ModifiedAt: time.Now(),
+func New(
+	id uuid.UUID,
+	createdAt time.Time,
+	modifiedAt time.Time,
+	name name.Name,
+	surname surname.Surname,
+	patronymic patronymic.Patronymic,
+	email email.Email,
+	phoneNumber phone.PhoneNumber,
+	age age.Age,
+	gender gender.Gender,
+) (*Contact, error) {
+
+	if id == uuid.Nil {
+		id = uuid.New()
 	}
+
+	return &Contact{
+		id:          id,
+		createdAt:   createdAt,
+		modifiedAt:  modifiedAt,
+		name:        name,
+		surname:     surname,
+		patronymic:  patronymic,
+		email:       email,
+		phoneNumber: phoneNumber,
+		age:         age,
+		gender:      gender,
+	}, nil
 }
 
-func (c *Contact) SetPhoneNumber(number string) error {
-	for _, digit := range number {
-		if digit < '0' || digit > '9' {
-			return ErrorIncorrectPhoneNumber
-		}
-	}
-	c.PhoneNumber = number
-	return nil
+func (c Contact) Id() uuid.UUID {
+	return c.id
+}
+
+func (c Contact) CreatedAt() time.Time {
+	return c.createdAt
+}
+
+func (c Contact) ModifiedAt() time.Time {
+	return c.modifiedAt
+}
+
+func (c Contact) Name() name.Name {
+	return c.name
+}
+
+func (c Contact) Surname() surname.Surname {
+	return c.surname
+}
+
+func (c Contact) Patronymic() patronymic.Patronymic {
+	return c.patronymic
+}
+
+func (c Contact) Email() email.Email {
+	return c.email
+}
+
+func (c Contact) PhoneNumber() phone.PhoneNumber {
+	return c.phoneNumber
+}
+
+func (c Contact) Age() age.Age {
+	return c.age
+}
+
+func (c Contact) Gender() gender.Gender {
+	return c.gender
 }
