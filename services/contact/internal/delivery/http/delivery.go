@@ -1,4 +1,4 @@
-package delivery
+package http
 
 import "github.com/cr00z/goContacts/services/contact/internal/service"
 

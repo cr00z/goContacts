@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/cr00z/goContacts/pkg/store/postgres"
-	"github.com/cr00z/goContacts/services/contact/internal/delivery"
+	"github.com/cr00z/goContacts/services/contact/internal/delivery/http"
 	repository "github.com/cr00z/goContacts/services/contact/internal/repository/postgres"
 	service "github.com/cr00z/goContacts/services/contact/internal/service"
 )
@@ -17,7 +17,7 @@ func main() {
 
 	repo := repository.New(conn)
 	svc := service.New(repo)
-	deliv := delivery.New(svc)
+	deliv := http.New(svc)
 
 	fmt.Println("hello world", deliv)
 }
