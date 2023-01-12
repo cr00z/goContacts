@@ -3,6 +3,7 @@ module github.com/cr00z/goContacts
 go 1.19
 
 require (
+	github.com/google/uuid v1.3.0
 	github.com/jackc/pgx/v4 v4.17.2
 	github.com/pkg/errors v0.8.1
 )
