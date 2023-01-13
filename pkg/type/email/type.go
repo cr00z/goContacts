@@ -3,6 +3,7 @@ package email
 import (
 	"errors"
 	"regexp"
+	"strings"
 )
 
 var (
@@ -13,7 +14,7 @@ var (
 type Email string
 
 func New(email string) (*Email, error) {
-	if !emailRegexp.MatchString(email) {
+	if !emailRegexp.MatchString(strings.ToLower(email)) {
 		return nil, ErrorEmailInvalid
 	}
 	m := Email(email)
