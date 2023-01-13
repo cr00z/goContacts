@@ -5,7 +5,8 @@ import (
 	"github.com/cr00z/goContacts/pkg/store/postgres"
 	"github.com/cr00z/goContacts/services/contact/internal/delivery/http"
 	repository "github.com/cr00z/goContacts/services/contact/internal/repository/postgres"
-	service "github.com/cr00z/goContacts/services/contact/internal/service"
+	contact_service "github.com/cr00z/goContacts/services/contact/internal/service/contact"
+	group_service "github.com/cr00z/goContacts/services/contact/internal/service/group"
 )
 
 func main() {
@@ -15,9 +16,12 @@ func main() {
 	}
 	defer conn.Pool.Close()
 
-	repo := repository.New(conn)
-	svc := service.New(repo)
-	deliv := http.New(svc)
+	repo := repository.New(conn, repository.Options{})
+	contactSvc := contact_service.NewContactService(repo, contact_service.Options{})
+	groupSvc := group_service.NewGroupService(repo, group_service.Options{})
+	deliv := http.New(contactSvc, groupSvc, http.Options{})
 
 	fmt.Println("hello world", deliv)
 }
+
+// PGPORT=5442;PGDATABASE=test;PGUSER=user;PGPASSWORD=passwd
