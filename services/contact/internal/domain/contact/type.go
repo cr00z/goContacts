@@ -29,6 +29,20 @@ type Contact struct {
 }
 
 func New(
+	name name.Name,
+	surname surname.Surname,
+	patronymic patronymic.Patronymic,
+	email email.Email,
+	phoneNumber phone.PhoneNumber,
+	age age.Age,
+	gender gender.Gender,
+) (*Contact, error) {
+	id := uuid.New()
+	tm := time.Now().UTC()
+	return NewWithId(id, tm, tm, name, surname, patronymic, email, phoneNumber, age, gender)
+}
+
+func NewWithId(
 	id uuid.UUID,
 	createdAt time.Time,
 	modifiedAt time.Time,
@@ -40,11 +54,6 @@ func New(
 	age age.Age,
 	gender gender.Gender,
 ) (*Contact, error) {
-
-	if id == uuid.Nil {
-		id = uuid.New()
-	}
-
 	return &Contact{
 		id:          id,
 		createdAt:   createdAt,

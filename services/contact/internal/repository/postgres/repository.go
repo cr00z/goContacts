@@ -33,64 +33,68 @@ func (r *PostgresRepository) SetOptions(opts Options) {
 // TODO: растащить по файлам
 // Contact interface
 
-func (r PostgresRepository) CreateContact(contact *contact.Contact) error {
+func (r *PostgresRepository) CreateContact(contact *contact.Contact) error {
 	return nil
 }
 
-func (r PostgresRepository) UpdateContact(contact *contact.Contact) error {
+func (r *PostgresRepository) UpdateContact(
+	contactId uuid.UUID,
+	updateFn func(oldContact *contact.Contact) (*contact.Contact, error),
+) error {
 	return nil
 }
 
-func (r PostgresRepository) DeleteContactById(id uuid.UUID) error {
+func (r *PostgresRepository) DeleteContactById(id uuid.UUID) error {
 	return nil
 }
 
 // ContactReader interface
-func (r PostgresRepository) FindContacts(filter queryparam.QueryParam) ([]*contact.Contact, error) {
+
+func (r *PostgresRepository) FindContacts(filter queryparam.QueryParam) ([]*contact.Contact, error) {
 	return nil, nil
 }
 
-func (r PostgresRepository) GetContactById(id uuid.UUID) (*contact.Contact, error) {
+func (r *PostgresRepository) GetContactById(id uuid.UUID) (*contact.Contact, error) {
 	return nil, nil
 }
 
-func (r PostgresRepository) CountContacts() error {
+func (r *PostgresRepository) CountContacts() error {
 	return nil
 }
 
 // Group interface
 
-func (r PostgresRepository) CreateGroup(group *group.Group) error {
+func (r *PostgresRepository) CreateGroup(group *group.Group) error {
 	return nil
 }
 
-func (r PostgresRepository) UpdateGroup(group *group.Group) error {
+func (r *PostgresRepository) UpdateGroup(group *group.Group) error {
 	return nil
 }
 
-func (r PostgresRepository) DeleteGroupById(id uuid.UUID) error {
+func (r *PostgresRepository) DeleteGroupById(id uuid.UUID) error {
 	return nil
 }
 
 // GroupReader interface
-func (r PostgresRepository) FindGroups(filter queryparam.QueryParam) ([]*group.Group, error) {
+func (r *PostgresRepository) FindGroups(filter queryparam.QueryParam) ([]*group.Group, error) {
 	return nil, nil
 }
 
-func (r PostgresRepository) GetGroupById(id uuid.UUID) (*group.Group, error) {
+func (r *PostgresRepository) GetGroupById(id uuid.UUID) (*group.Group, error) {
 	return nil, nil
 }
 
-func (r PostgresRepository) CountGroups() error {
+func (r *PostgresRepository) CountGroups() error {
 	return nil
 }
 
 // ContactInGroup interface
 
-func (r PostgresRepository) AddContactsToGroup(groupId uuid.UUID, contactIds []uuid.UUID) error {
+func (r *PostgresRepository) AddContactsToGroup(groupId uuid.UUID, contactIds []uuid.UUID) error {
 	return nil
 }
 
-func (r PostgresRepository) RemoveContactsFromGroup(groupId uuid.UUID, contactIds []uuid.UUID) error {
+func (r *PostgresRepository) RemoveContactsFromGroup(groupId uuid.UUID, contactIds []uuid.UUID) error {
 	return nil
 }

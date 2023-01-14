@@ -30,7 +30,10 @@ func (r Repository) CreateContact(contact *contact.Contact) error {
 	return err
 }
 
-func (r Repository) UpdateContact(contact *contact.Contact) error {
+func (r Repository) UpdateContact(
+	contactId uuid.UUID,
+	updateFn func(oldContact *contact.Contact) (*contact.Contact, error),
+) error {
 	//TODO implement me
 	panic("implement me")
 }

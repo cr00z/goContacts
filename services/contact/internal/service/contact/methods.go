@@ -4,6 +4,7 @@ import (
 	"github.com/cr00z/goContacts/pkg/type/queryparam"
 	"github.com/cr00z/goContacts/services/contact/internal/domain/contact"
 	"github.com/google/uuid"
+	"time"
 )
 
 // Contact interface
@@ -12,8 +13,21 @@ func (s *Service) Create(contact *contact.Contact) error {
 	return s.repo.CreateContact(contact)
 }
 
-func (s *Service) Update(contact *contact.Contact) error {
-	return s.repo.UpdateContact(contact)
+func (s *Service) Update(updContact *contact.Contact) error {
+	return s.repo.UpdateContact(updContact.Id(), func(oldContact *contact.Contact) (*contact.Contact, error) {
+		return contact.NewWithId(
+			oldContact.Id(),
+			oldContact.CreatedAt(),
+			time.Now().UTC(),
+			updContact.Name(),
+			updContact.Surname(),
+			updContact.Patronymic(),
+			updContact.Email(),
+			updContact.PhoneNumber(),
+			updContact.Age(),
+			updContact.Gender(),
+		)
+	})
 }
 
 func (s *Service) DeleteById(id uuid.UUID) error {

@@ -17,7 +17,10 @@ type Storager interface {
 
 type Contact interface {
 	CreateContact(contact *contact.Contact) error
-	UpdateContact(contact *contact.Contact) error
+	UpdateContact(
+		contactId uuid.UUID,
+		updateFn func(oldContact *contact.Contact) (*contact.Contact, error),
+	) error
 	DeleteContactById(id uuid.UUID) error
 }
 
