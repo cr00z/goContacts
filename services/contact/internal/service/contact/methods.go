@@ -1,8 +1,8 @@
 package contact
 
 import (
-	"github.com/cr00z/goContacts/pkg/type/queryparam"
-	"github.com/cr00z/goContacts/services/contact/internal/domain/contact"
+	"github.com/cr00z/opsiot-cnts-demo/pkg/type/queryparam"
+	"github.com/cr00z/opsiot-cnts-demo/services/contact/internal/domain/contact"
 	"github.com/google/uuid"
 	"time"
 )

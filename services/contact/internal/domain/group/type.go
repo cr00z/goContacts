@@ -1,8 +1,8 @@
 package group
 
 import (
-	"github.com/cr00z/goContacts/services/contact/internal/domain/group/description"
-	"github.com/cr00z/goContacts/services/contact/internal/domain/group/name"
+	"github.com/cr00z/opsiot-cnts-demo/services/contact/internal/domain/group/description"
+	"github.com/cr00z/opsiot-cnts-demo/services/contact/internal/domain/group/name"
 	"github.com/google/uuid"
 	"time"
 )

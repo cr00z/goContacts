@@ -1,11 +1,11 @@
 package main
 
 import (
-	"github.com/cr00z/goContacts/pkg/store/postgres"
-	http_delivery "github.com/cr00z/goContacts/services/contact/internal/delivery/http"
-	repository "github.com/cr00z/goContacts/services/contact/internal/repository/postgres"
-	contact_service "github.com/cr00z/goContacts/services/contact/internal/service/contact"
-	group_service "github.com/cr00z/goContacts/services/contact/internal/service/group"
+	"github.com/cr00z/opsiot-cnts-demo/pkg/store/postgres"
+	http_delivery "github.com/cr00z/opsiot-cnts-demo/services/contact/internal/delivery/http"
+	repository "github.com/cr00z/opsiot-cnts-demo/services/contact/internal/repository/postgres"
+	contact_service "github.com/cr00z/opsiot-cnts-demo/services/contact/internal/service/contact"
+	group_service "github.com/cr00z/opsiot-cnts-demo/services/contact/internal/service/group"
 	"github.com/spf13/viper"
 	"log"
 	"net/http"

@@ -1,13 +1,13 @@
 package contact
 
 import (
-	"github.com/cr00z/goContacts/pkg/type/email"
-	"github.com/cr00z/goContacts/pkg/type/gender"
-	"github.com/cr00z/goContacts/pkg/type/phone"
-	"github.com/cr00z/goContacts/services/contact/internal/domain/contact/age"
-	"github.com/cr00z/goContacts/services/contact/internal/domain/contact/name"
-	"github.com/cr00z/goContacts/services/contact/internal/domain/contact/patronymic"
-	"github.com/cr00z/goContacts/services/contact/internal/domain/contact/surname"
+	"github.com/cr00z/opsiot-cnts-demo/pkg/type/email"
+	"github.com/cr00z/opsiot-cnts-demo/pkg/type/gender"
+	"github.com/cr00z/opsiot-cnts-demo/pkg/type/phone"
+	"github.com/cr00z/opsiot-cnts-demo/services/contact/internal/domain/contact/age"
+	"github.com/cr00z/opsiot-cnts-demo/services/contact/internal/domain/contact/name"
+	"github.com/cr00z/opsiot-cnts-demo/services/contact/internal/domain/contact/patronymic"
+	"github.com/cr00z/opsiot-cnts-demo/services/contact/internal/domain/contact/surname"
 	"github.com/google/uuid"
 	"time"
 )

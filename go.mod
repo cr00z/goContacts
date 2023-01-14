@@ -1,4 +1,4 @@
-module github.com/cr00z/goContacts
+module github.com/cr00z/opsiot-cnts-demo
 
 go 1.19
 

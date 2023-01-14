@@ -1,7 +1,7 @@
 package contact
 
 import (
-	"github.com/cr00z/goContacts/services/contact/internal/service/adapters/storage"
+	"github.com/cr00z/opsiot-cnts-demo/services/contact/internal/service/adapters/storage"
 )
 
 type Options struct{}

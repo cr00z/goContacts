@@ -1,10 +1,10 @@
 package repository
 
 import (
-	"github.com/cr00z/goContacts/pkg/store/postgres"
-	"github.com/cr00z/goContacts/pkg/type/queryparam"
-	"github.com/cr00z/goContacts/services/contact/internal/domain/contact"
-	"github.com/cr00z/goContacts/services/contact/internal/domain/group"
+	"github.com/cr00z/opsiot-cnts-demo/pkg/store/postgres"
+	"github.com/cr00z/opsiot-cnts-demo/pkg/type/queryparam"
+	"github.com/cr00z/opsiot-cnts-demo/services/contact/internal/domain/contact"
+	"github.com/cr00z/opsiot-cnts-demo/services/contact/internal/domain/group"
 	"github.com/google/uuid"
 )
 

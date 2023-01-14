@@ -2,7 +2,7 @@ package http
 
 import (
 	"fmt"
-	"github.com/cr00z/goContacts/services/contact/internal/service"
+	"github.com/cr00z/opsiot-cnts-demo/services/contact/internal/service"
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/viper"
 )
