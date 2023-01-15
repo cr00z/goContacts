@@ -8,7 +8,7 @@ services:
       POSTGRES_DB: test
       PGDATA: /data/postgres
     volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+#      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
       - ./postgres:/data/postgres
     ports:
       - "5442:5432"

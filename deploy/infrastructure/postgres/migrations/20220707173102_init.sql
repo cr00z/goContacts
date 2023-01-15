@@ -1,3 +1,8 @@
+-- +goose Up
+-- +goose StatementBegin
+
+CREATE EXTENSION pgcrypto;
+
 CREATE SCHEMA IF NOT EXISTS test;
 
 CREATE TABLE IF NOT EXISTS test.contact
@@ -17,7 +22,7 @@ CREATE TABLE IF NOT EXISTS test.contact
     CHECK ((age >= 0) AND (age <= 200)),
     gender       smallint,
     is_archived  boolean      DEFAULT FALSE                  NOT NULL
-);
+    );
 
 CREATE TABLE IF NOT EXISTS test."group"
 (
@@ -30,7 +35,7 @@ CREATE TABLE IF NOT EXISTS test."group"
     description   varchar(1000),
     contact_count bigint    DEFAULT 0                 NOT NULL,
     is_archived   boolean   DEFAULT FALSE             NOT NULL
-);
+    );
 
 CREATE TABLE IF NOT EXISTS test.contact_in_group
 (
@@ -46,3 +51,18 @@ CREATE TABLE IF NOT EXISTS test.contact_in_group
     constraint fk_group_id
     references test."group"
 );
+
+-- +goose StatementEnd
+
+-- +goose Down
+-- +goose StatementBegin
+
+DROP TABLE IF EXISTS test.contact_in_group;
+
+DROP TABLE IF EXISTS test.contact;
+
+DROP TABLE IF EXISTS test.group;
+
+DROP SCHEMA IF EXISTS test;
+
+-- +goose StatementEnd

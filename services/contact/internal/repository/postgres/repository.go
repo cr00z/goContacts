@@ -31,22 +31,6 @@ func (r *PostgresRepository) SetOptions(opts Options) {
 }
 
 // TODO: растащить по файлам
-// Contact interface
-
-func (r *PostgresRepository) CreateContact(contact *contact.Contact) error {
-	return nil
-}
-
-func (r *PostgresRepository) UpdateContact(
-	contactId uuid.UUID,
-	updateFn func(oldContact *contact.Contact) (*contact.Contact, error),
-) error {
-	return nil
-}
-
-func (r *PostgresRepository) DeleteContactById(id uuid.UUID) error {
-	return nil
-}
 
 // ContactReader interface
 
